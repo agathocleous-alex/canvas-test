@@ -7,6 +7,7 @@ plugins {
 
 group = "org.example"
 version = "1.0-SNAPSHOT"
+val kotestVersion = "5.2.3"
 
 repositories {
     mavenCentral()
@@ -14,6 +15,7 @@ repositories {
 
 dependencies {
     testImplementation(kotlin("test"))
+    testImplementation("io.kotest:kotest-assertions-core:$kotestVersion")
 }
 
 tasks.test {
