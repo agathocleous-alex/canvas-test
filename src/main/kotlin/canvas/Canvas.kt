@@ -21,7 +21,7 @@ class Canvas(dimensions: CanvasDimensions) {
         return canvas[point.yCoord]!![point.xCoord]
     }
 
-    fun changePoint(point: Point, colour: Char) {
+    fun changePointColour(point: Point, colour: Char) {
         validateCoordinates(point)
         canvas[point.yCoord]!![point.xCoord] = colour
     }

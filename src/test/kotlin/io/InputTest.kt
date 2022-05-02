@@ -1,4 +1,4 @@
-package core.io
+package io
 
 import io.Input
 import io.kotest.matchers.shouldBe

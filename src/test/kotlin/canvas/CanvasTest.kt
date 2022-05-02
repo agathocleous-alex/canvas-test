@@ -1,9 +1,8 @@
-package core.canvas
+package canvas
 
 import canvas.Canvas
 import exceptions.CanvasException
 import io.kotest.assertions.throwables.shouldThrow
-import io.kotest.matchers.collections.shouldContainInOrder
 import io.kotest.matchers.shouldBe
 import io.kotest.matchers.string.shouldStartWith
 import io.kotest.matchers.types.shouldBeTypeOf
@@ -62,7 +61,7 @@ class CanvasTest {
     fun `change valid coordinate` () {
         val canvas = Canvas(Canvas.CanvasDimensions(5, 5))
         val point = Canvas.Point(1, 1)
-        canvas.changePoint(point, 'O')
+        canvas.changePointColour(point, 'O')
         canvas.getPointColour(point) shouldBe 'O'
     }
 }
