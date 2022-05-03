@@ -1,16 +1,12 @@
 package io
 
-import java.util.Scanner
+import java.io.BufferedReader
+import java.io.InputStreamReader
 
 class Input {
     companion object {
         fun read() : String {
-            val scanner = Scanner(System.`in`)
-            if(scanner.hasNextLine()) {
-                return scanner.nextLine()!!.trim().replace(Regex("[\\s]+"), " ")
-            }
-            scanner.close()
-            return " "
+            return BufferedReader(InputStreamReader(System.`in`)).readLine()!!.trim().replace(Regex("[\\s]+"), " ")
         }
     }
 }
