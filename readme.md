@@ -29,13 +29,5 @@ Must be running at least Java 11.
 * To quit the application, type `Q`.
 ## Help
 
-Any advise for common problems or issues.
-```
-command to run if program contains helper info
-```
-
 ## Authors
-
-Contributors names and contact info
-
-ex. Alex Pettus Agathocleous
+Alex Pettus Agathocleous
