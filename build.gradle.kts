@@ -26,6 +26,11 @@ tasks.withType<KotlinCompile> {
     kotlinOptions.jvmTarget = "11"
 }
 
+tasks.withType<JavaExec>() {
+    standardInput = System.`in`
+}
+
+
 application {
     mainClass.set("MainKt")
 }
