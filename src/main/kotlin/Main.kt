@@ -1,10 +1,13 @@
 import canvas.Canvas
 import canvas.Renderer
 import exceptions.CanvasException
-import exceptions.InvalidInputException
 import io.Input
 import io.parser.Command
 import io.parser.Parser
+
+fun main(args: Array<String>) {
+    Main.executionLoop()
+}
 
 class Main {
     companion object {
@@ -18,13 +21,7 @@ class Main {
                 "Q : quits the program"
         private val invalidCanvasException = CanvasException("Please create a canvas before trying anything else!")
 
-
-        @JvmStatic
-        fun main(args: Array<String>) {
-            executionLoop()
-        }
-
-        private fun executionLoop() {
+        fun executionLoop() {
             try {
                 print("enter command: ")
                 val input = Input.read()
