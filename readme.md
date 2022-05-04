@@ -27,7 +27,6 @@ Must be running at least Java 11.
 * Or you can draw rectangles using one of two methods. Either by drawing a line where `x1` != `x2` or `y1` != `y2` or by using `R x1 y1 x2 y2` as above.
 * In order to fill an area, you can use the `B x y c` command where `x` `y` are the coordinates of the initial poin to fill, and `c` is the colour which the area will be filled with.
 * To quit the application, type `Q`.
-## Help
 
 ## Authors
 Alex Pettus Agathocleous
