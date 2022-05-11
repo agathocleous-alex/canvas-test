@@ -4,6 +4,8 @@ import domain.BucketFillParameters
 import domain.Canvas
 import domain.CanvasDimensions
 import domain.Point
+import exceptions.CanvasException
+import exceptions.InvalidInputException
 import exceptions.NoCanvasException
 import io.Renderer
 import io.kotest.assertions.throwables.shouldThrow
@@ -90,6 +92,13 @@ class InstructionTest {
         BucketFill(fillParameters).executeInstruction(canvas)
         val point = Point(35, 35)
         canvas.getPointColour(point) shouldBe 'o'
+    }
+
+    @Test
+    fun `filling an area using a point outside the canvas dimensions throws CanvasException`() {
+        val canvas = Create(CanvasDimensions(20, 20)).executeInstruction(null)
+        val fillParameters = BucketFillParameters(Point(canvas.getWidth() + 1, canvas.getHeight() + 1), 'o')
+        shouldThrow<CanvasException> { BucketFill(fillParameters).executeInstruction(canvas) }
     }
 
     @Rule

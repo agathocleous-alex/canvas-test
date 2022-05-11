@@ -16,15 +16,6 @@ class CanvasTest {
         canvas.getWidth() shouldBe 2
     }
 
-
-
-    @Test
-    fun `return correct canvas dimensions` () {
-        val canvas = Canvas(CanvasDimensions(2, 3))
-        canvas.getWidth() shouldBe 2
-        canvas.getHeight() shouldBe 3
-    }
-
     @Test
     fun `return value of valid coordinate` () {
         val canvas = Canvas(CanvasDimensions(2, 3))
@@ -33,7 +24,7 @@ class CanvasTest {
     }
 
     @Test
-    fun `getting an invalid coordinate should throw CanvasException`() {
+    fun `getting an invalid coordinate throws CanvasException`() {
         val canvas = Canvas(CanvasDimensions(2, 3))
         shouldThrow<CanvasException> { canvas.getPointColour(Point(1, 4)) }
             .message shouldBe "y coordinate too large"
@@ -51,5 +42,18 @@ class CanvasTest {
         val point = Point(1, 1)
         canvas.changePointColour(point, 'O')
         canvas.getPointColour(point) shouldBe 'O'
+    }
+
+    @Test
+    fun `change invalid coordinate throws a CanvasException` () {
+        val canvas = Canvas(CanvasDimensions(2, 3))
+        shouldThrow<CanvasException> { canvas.changePointColour(Point(1, 4), 'o') }
+            .message shouldBe "y coordinate too large"
+        shouldThrow<CanvasException> { canvas.changePointColour(Point(1, -4), 'o') }
+            .message shouldBe "y coordinate too small"
+        shouldThrow<CanvasException> { canvas.changePointColour(Point(3, 2), 'o') }
+            .message shouldBe "x coordinate too large"
+        shouldThrow<CanvasException> { canvas.changePointColour(Point(-3, 4), 'o') }
+            .message shouldBe "x coordinate too small"
     }
 }

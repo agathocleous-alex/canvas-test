@@ -22,7 +22,7 @@ class Main {
 
         fun executionLoop() {
             try {
-                print("enter command: ")
+                print("Enter Command -> ")
                 canvas = InstructionFactory.buildInstruction(Input.read()).executeInstruction(canvas)
                 Renderer.drawCanvas(canvas!!)
                 executionLoop()

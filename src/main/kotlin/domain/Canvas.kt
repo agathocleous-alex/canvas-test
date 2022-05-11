@@ -31,9 +31,9 @@ class Canvas(dimensions: CanvasDimensions) {
 
     private fun validateCoordinates(point: Point) {
         when {
-            point.xCoord > getWidth() -> throw ExceptionBuilder.getCanvasException("x coordinate too large")
+            point.xCoord >= getWidth() -> throw ExceptionBuilder.getCanvasException("x coordinate too large")
             point.xCoord < 0 -> throw ExceptionBuilder.getCanvasException("x coordinate too small")
-            point.yCoord > getHeight() -> throw ExceptionBuilder.getCanvasException("y coordinate too large")
+            point.yCoord >= getHeight() -> throw ExceptionBuilder.getCanvasException("y coordinate too large")
             point.yCoord < 0 -> throw ExceptionBuilder.getCanvasException("y coordinate too small")
         }
     }
