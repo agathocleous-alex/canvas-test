@@ -7,7 +7,7 @@ plugins {
 
 group = "org.example"
 version = "1.0-SNAPSHOT"
-val kotestVersion = "5.2.3"
+val kotestVersion = "5.3.0"
 
 repositories {
     mavenCentral()
@@ -15,6 +15,7 @@ repositories {
 
 dependencies {
     testImplementation(kotlin("test"))
+    testImplementation("com.github.stefanbirkner:system-rules:1.19.0")
     testImplementation("io.kotest:kotest-assertions-core:$kotestVersion")
 }
 

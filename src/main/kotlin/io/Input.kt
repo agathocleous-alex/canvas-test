@@ -6,7 +6,8 @@ import java.io.InputStreamReader
 class Input {
     companion object {
         fun read() : String {
-            return BufferedReader(InputStreamReader(System.`in`)).readLine()!!.trim().replace(Regex("[\\s]+"), " ")
+            return BufferedReader(InputStreamReader(System.`in`))
+                .readLine()!!.trim().replace(Regex("[\\s]+"), " ")
         }
     }
 }
