@@ -37,8 +37,8 @@ class InstructionTest {
         val start = Point(1, 5)
         val end = Point(5, 5)
         val linedCanvas = Line(Pair(start, end)).executeInstruction(canvas)
-        Renderer.drawCanvas(canvas)
-        Renderer.drawCanvas(linedCanvas)
+//        Renderer.drawCanvas(canvas)
+//        Renderer.drawCanvas(linedCanvas)
         for(i in start.xCoord ..end.xCoord) {
             linedCanvas.getPointColour(Point(i, 5)) shouldBe 'X'
         }

@@ -27,7 +27,6 @@ class InstructionFactory {
     }
 
     private fun buildRectangleInstruction(params: String) : Rectangle {
-      val raw = convertToIntArray(params)
       return Rectangle(ensureLeftToRightOrder(Pair(Point(raw[0], raw[1]), Point(raw[2], raw[3]))))
     }
 
@@ -38,12 +37,12 @@ class InstructionFactory {
     private fun buildFillInstruction(params: String) : BucketFill  {
       val raw = params.trim().split(" ")
       return BucketFill(BucketFillParameters(
-        point = Point(raw[0].toInt(), raw[1].toInt()),
+        point = Point(raw[0].toInt() - offset, raw[1].toInt() - offset),
         colour = raw[2].toCharArray().first()))
     }
 
     private fun buildLineInstruction(params: String) : Line {
-      val raw = convertToIntArray(params)
+      val raw = convertToIntArray(params).map { it - offset }
       return Line(ensureLeftToRightOrder(Pair(Point(raw[0], raw[1]), Point(raw[2], raw[3]))))
     }
 
@@ -52,7 +51,11 @@ class InstructionFactory {
       return Create(CanvasDimensions(raw[0], raw[1]))
     }
 
-    private fun convertToIntArray(parameterString: String) = parameterString.trim().split(" ").map { it.toInt() }
+    private fun convertToIntArray(parameterString: String) =
+      parameterString
+        .trim()
+        .split(" ")
+        .map { it.toInt() }
 
     private fun ensureLeftToRightOrder(pair: Pair<Point, Point>) : Pair<Point, Point> {
       if(pair.first.xCoord > pair.second.xCoord) {

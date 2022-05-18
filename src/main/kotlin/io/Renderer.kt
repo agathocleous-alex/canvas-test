@@ -6,6 +6,7 @@ class Renderer {
     companion object {
         fun drawCanvas(canvas: Canvas) {
             val stringBuilder = StringBuilder()
+            stringBuilder.append("\n")
             buildHorizontalBar(stringBuilder, canvas.getWidth())
             canvas.getMatrix().forEach { row ->
                 stringBuilder.append("#")
