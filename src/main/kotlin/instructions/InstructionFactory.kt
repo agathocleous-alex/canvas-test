@@ -14,6 +14,7 @@ class InstructionFactory {
     private val rectangleRegex = Regex("^[Rr]([\\s][\\d]+){4}$")
     private val quitRegex = Regex("^[Qq]$")
     private val bucketFillRegex = Regex("^[Bb]([\\s][\\d]+){2}[\\s][a-zA-Z\\d]\$")
+    private const val offset = 1
 
     fun buildInstruction(input: String) : Instruction {
       return when {
@@ -27,6 +28,7 @@ class InstructionFactory {
     }
 
     private fun buildRectangleInstruction(params: String) : Rectangle {
+      val raw = convertToIntArray(params).map { it - offset }
       return Rectangle(ensureLeftToRightOrder(Pair(Point(raw[0], raw[1]), Point(raw[2], raw[3]))))
     }
 
